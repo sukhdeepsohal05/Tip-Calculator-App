@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#root {
+  background-color: var(--light-grayish-cyan);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  margin: 40px;
+}
+
+main {
+  max-width: 800px;
+  height: 400px;
+  border-radius: 20px;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.input-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-container label {
+  color: var(--dark-grayish-cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-container label .invalid-text {
+  color: #ff3030c1;
+}
+
+.input-container p {
+  background-color: var(--very-light-grayish-cyan);
+  padding: 0 15px;
+  border: 2px solid var(--very-light-grayish-cyan);
+  border-radius: 5px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-container p:focus-within {
+  border-color: var(--strong-cyan);
+}
+
+.input-container p input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-grayish-cyan);
+  font-size: inherit;
+  text-align: right;
+  width: 100%;
+}
+
+.input-container p input::placeholder {
+  color: var(--grayish-cyan);
+}
+
+.select-tip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.select-tip button {
+  background-color: var(--very-dark-cyan);
+  color: var(--very-light-grayish-cyan);
+  padding: 5px;
+  border: 2px solid var(--very-dark-cyan);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.select-tip button.active {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  border-color: var(--strong-cyan);
+}
+
+.select-tip input {
+  outline: none;
+  border: none;
+  background-color: var(--very-light-grayish-cyan);
+  color: var(--dark-grayish-cyan);
+  text-align: right;
+  padding: 0 10px;
+  border: 2px solid var(--very-light-grayish-cyan);
+  border-radius: 5px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.select-tip input::placeholder {
+  text-align: center;
+}
+
+.select-tip input:focus {
+  border-color: var(--strong-cyan);
+}
+
+.display-tip-container {
+  background-color: var(--very-dark-cyan);
+  border-radius: 12px;
+  padding-block: 35px;
+  padding-inline: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tip-amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--very-light-grayish-cyan);
+  margin-bottom: 15px;
+}
+
+.tip-amount p,
+.total p {
+  color: var(--grayish-cyan);
+}
+
+.tip-amount h1,
+.total h1 {
+  color: var(--strong-cyan);
+  font-size: 42px;
+}
+
+.reset-button {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: var(--light-grayish-cyan);
+}
+
+.reset-button:disabled, .reset-button:disabled:hover {
+  background-color: var(--strong-cyan);
+  opacity: 0.3;
+}
+
+.invalid,
+.invalid:focus,
+.invalid:focus-within {
+  border: 2px solid #ff3030c1 !important;
+}
+
+@media screen and (max-width: 426px) {
+  #root {
+    justify-content: flex-end;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+    padding: 30px;
+    border-end-end-radius: 0;
+    border-end-start-radius: 0;
+  }
+
+  .input-container{
+    gap: 25px;
+  }
+
+  .select-tip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .select-tip button {
+    padding: 10px;
+  }
+}
